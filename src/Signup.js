@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import Login from './Login';
 
-class Register extends Component {
+class Signup extends Component {
   constructor(props){
     super(props);
     this.state={
@@ -46,15 +46,10 @@ class Register extends Component {
        console.log(error);
      });
     }
-  
+
   render() {
     return (
       <div>
-        <MuiThemeProvider>
-          <div>
-          <AppBar
-             title="Register"
-           />
            <TextField
              hintText="Enter your First Name"
              floatingLabelText="First Name"
@@ -82,9 +77,7 @@ class Register extends Component {
              />
            <br/>
            <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
-          </div>
-         </MuiThemeProvider>
-      </div>
+</div>
     );
   }
 }
@@ -93,4 +86,4 @@ const style = {
   margin: 15,
 };
 
-export default Register;
+export default Signup;

@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
 import axios from 'axios';
 import Profile from './Profile';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import './Login.css';
 
 const style = {
   margin: 15,
@@ -23,7 +18,7 @@ class Login extends Component {
     }
   }
 
-  handleClick(event){
+  login(event){
     var apiBaseUrl = "http://localhost:5000/api/";
     var self = this;
     var payload={
@@ -55,29 +50,21 @@ class Login extends Component {
 
   render(){
     return (
-      <div>
-        <MuiThemeProvider>
-          <div>
-            <AppBar title={<img src="/images/schedlogo-white.png"/> }/>
-            <i class="far fa-calendar-alt"></i>
-            <div class="card card-3">
-              <TextField
-                hintText="Enter your Email"
-                floatingLabelText="Email"
-                onChange = {(event,newValue) => this.setState({email:newValue})}
-              />
-              <br/>
-              <TextField
-                type="password"
-                hintText="Enter your Password"
-                floatingLabelText="Password"
-                onChange = {(event,newValue) => this.setState({password:newValue})}
-              />
-              <br/>
-              <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
-            </div>
-          </div>
-        </MuiThemeProvider>
+      <div class="card card-1">
+        <TextField
+          hintText="Enter your Email"
+          floatingLabelText="Email"
+          onChange = {(event,newValue) => this.setState({email:newValue})}
+        />
+        <br/>
+        <TextField
+          type="password"
+          hintText="Enter your Password"
+          floatingLabelText="Password"
+          onChange = {(event,newValue) => this.setState({password:newValue})}
+        />
+        <br/>
+        <RaisedButton label="Login" primary={true} style={style} onClick={(event) => this.login(event)}/>
       </div>
     );
   }

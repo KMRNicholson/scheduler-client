@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from 'material-ui/AppBar';
 import Login from './Login';
-import Register from './Register';
+import Signup from './Signup';
 
 const style = {
   margin: 15,
@@ -12,11 +13,9 @@ class Loginscreen extends Component {
   constructor(props){
     super(props);
     this.state={
-      email:'',
-      password:'',
       loginscreen:[],
       loginmessage:'',
-      buttonLabel:'Register',
+      buttonLabel:'Sign up',
       isLogin:true
     }
   }
@@ -24,7 +23,7 @@ class Loginscreen extends Component {
   componentWillMount(){
     var loginscreen = [];
     loginscreen.push(<Login parentContext={this} appContext={this.props.parentContext}/>);
-    var loginmessage = "Don't have an account? Register Now!";
+    var loginmessage = "Don't have an account? Sign up by clicking ";
     this.setState({
       loginscreen:loginscreen,
       loginmessage:loginmessage
@@ -35,8 +34,8 @@ class Loginscreen extends Component {
     var loginmessage;
     if(this.state.isLogin){
       var loginscreen=[];
-      loginscreen.push(<Register parentContext={this}/>);
-      loginmessage = "Already registered. Go to Login";
+      loginscreen.push(<Signup parentContext={this}/>);
+      loginmessage = "Already have an account? Sign in by clicking ";
       this.setState({
         loginscreen:loginscreen,
         loginmessage:loginmessage,
@@ -46,11 +45,11 @@ class Loginscreen extends Component {
     }else{
       var loginscreen=[];
       loginscreen.push(<Login parentContext={this}/>);
-      loginmessage = "Not Registered yet.Go to registration";
+      loginmessage = "Don't have an account? Sign up by clicking ";
       this.setState({
         loginscreen:loginscreen,
         loginmessage:loginmessage,
-        buttonLabel:"Register",
+        buttonLabel:"Sign up",
         isLogin:true
       })
     }
@@ -59,12 +58,14 @@ class Loginscreen extends Component {
   render() {
     return (
       <div className="loginscreen">
-        {this.state.loginscreen}
         <div>
-          {this.state.loginmessage}
           <MuiThemeProvider>
             <div>
-              <RaisedButton label={this.state.buttonLabel} primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+              <AppBar title={<img src="/images/schedlogo-white.png"/> } showMenuIconButton={false}/>
+              {this.state.loginscreen}
+              <div class="small-text">
+                {this.state.loginmessage} <a href='#' onClick={(event) => this.handleClick(event)}>here</a>!
+              </div>
             </div>
           </MuiThemeProvider>
         </div>
