@@ -7,6 +7,7 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import axios from 'axios';
 import Profile from './Profile';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import './Login.css';
 
 const style = {
@@ -57,7 +58,8 @@ class Login extends Component {
       <div>
         <MuiThemeProvider>
           <div>
-            <AppBar title="Scheduler"/>
+            <AppBar title={<img src="/images/sig.png"/> }/>
+            <i class="far fa-calendar-alt"></i>
             <div class="card card-3">
               <TextField
                 hintText="Enter your Email"

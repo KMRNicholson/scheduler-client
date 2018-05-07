@@ -6,6 +6,8 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.7",
+    "@fortawesome/react-fontawesome": "0.0.19",
     "axios": "^0.15.3",
     "material-ui": "^0.20.0",
     "react": "^16.2.0",
