@@ -5,10 +5,6 @@ import './App.css';
 
 injectTapEventPlugin();
 
-const style = {
-  margin: 15,
-};
-
 class App extends Component{
   constructor(props){
     super(props);

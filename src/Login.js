@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
@@ -28,17 +27,17 @@ class Login extends Component {
     axios.post(apiBaseUrl+'users/login', payload)
      .then(function (response) {
        console.log(response);
-       if(response.data.status == 200){
+       if(response.data.status === 200){
          console.log("Login successfull");
          var profile=[];
          profile.push(<Profile appContext={self.props.appContext}/>)
          self.props.appContext.setState({loginPage:[],profile:profile})
        }
-       else if(response.data.status == 401){
+       else if(response.data.status === 401){
          console.log("Username password do not match");
          alert("username password do not match")
        }
-       else if(response.data.status == 404){
+       else if(response.data.status === 404){
          console.log("Username does not exists");
          alert("Username does not exist");
        }
@@ -54,14 +53,14 @@ class Login extends Component {
         <TextField
           hintText="Enter your Email"
           floatingLabelText="Email"
-          onChange = {(event,newValue) => this.setState({email:newValue})}
+          onChange={(event,newValue) => this.setState({email:newValue})}
         />
         <br/>
         <TextField
           type="password"
           hintText="Enter your Password"
           floatingLabelText="Password"
-          onChange = {(event,newValue) => this.setState({password:newValue})}
+          onChange={(event,newValue) => this.setState({password:newValue})}
         />
         <br/>
         <RaisedButton label="Login" primary={true} style={style} onClick={(event) => this.login(event)}/>

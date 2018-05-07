@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import Login from './Login';
 import Signup from './Signup';
-
-const style = {
-  margin: 15,
-};
 
 class Loginscreen extends Component {
   constructor(props){
@@ -32,8 +27,8 @@ class Loginscreen extends Component {
 
   handleClick(event){
     var loginmessage;
+    var loginscreen = [];
     if(this.state.isLogin){
-      var loginscreen=[];
       loginscreen.push(<Signup parentContext={this}/>);
       loginmessage = "Already have an account? Sign in by clicking ";
       this.setState({
@@ -43,7 +38,6 @@ class Loginscreen extends Component {
         isLogin:false
       })
     }else{
-      var loginscreen=[];
       loginscreen.push(<Login parentContext={this}/>);
       loginmessage = "Don't have an account? Sign up by clicking ";
       this.setState({
@@ -61,7 +55,7 @@ class Loginscreen extends Component {
         <div>
           <MuiThemeProvider>
             <div>
-              <AppBar title={<img src="/images/schedlogo-white.png"/> } showMenuIconButton={false}/>
+              <AppBar title={<img role='presentation' src="/images/schedlogo-white.png"/> } showMenuIconButton={false}/>
               {this.state.loginscreen}
               <div class="small-text">
                 {this.state.loginmessage} <a href='#' onClick={(event) => this.handleClick(event)}>here</a>!
