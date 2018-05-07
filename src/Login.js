@@ -58,7 +58,7 @@ class Login extends Component {
       <div>
         <MuiThemeProvider>
           <div>
-            <AppBar title={<img src="/images/sig.png"/> }/>
+            <AppBar title={<img src="/images/schedlogo-white.png"/> }/>
             <i class="far fa-calendar-alt"></i>
             <div class="card card-3">
               <TextField
