@@ -49,7 +49,7 @@ class Login extends Component {
 
   render(){
     return (
-      <div class="card card-1">
+      <div className="card card-1">
         <TextField
           hintText="Enter your Email"
           floatingLabelText="Email"
