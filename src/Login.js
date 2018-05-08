@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import Profile from './Profile';
 
-const style = {
+const STYLE = {
   margin: 15,
 };
 
@@ -40,7 +40,7 @@ class Login extends Component {
 
   render(){
     return (
-      <div className="card card-1">
+      <div className="card-1 card-shadow-1">
         <TextField
           hintText="Enter your Email"
           floatingLabelText="Email"
@@ -53,7 +53,7 @@ class Login extends Component {
           floatingLabelText="Password"
           onChange={(event,newValue) => this.setState({password:newValue})}
         />
-        <RaisedButton label="Login" primary={true} style={style} onClick={(event) => this.login(event)}/>
+        <RaisedButton label="Sign In" primary={true} style={STYLE} onClick={(event) => this.login(event)}/>
       </div>
     );
   }
