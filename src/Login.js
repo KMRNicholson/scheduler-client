@@ -21,29 +21,20 @@ class Login extends Component {
     var apiBaseUrl = "http://localhost:5000/api/";
     var self = this;
     var payload={
-      "name":this.state.username,
+      "email":this.state.email,
       "password":this.state.password
     }
     axios.post(apiBaseUrl+'users/login', payload)
      .then(function (response) {
        console.log(response);
-       if(response.data.status === 200){
-         console.log("Login successfull");
-         var profile=[];
-         profile.push(<Profile appContext={self.props.appContext}/>)
-         self.props.appContext.setState({loginPage:[],profile:profile})
-       }
-       else if(response.data.status === 401){
-         console.log("Username password do not match");
-         alert("username password do not match")
-       }
-       else if(response.data.status === 404){
-         console.log("Username does not exists");
-         alert("Username does not exist");
-       }
+       self.props.parentContext.setState({errorMessage:''});
+       //var profile=[];
+       //profile.push(<Profile appContext={self.props.appContext}/>);
+       //self.props.appContext.setState({loginPage:[],profile:profile});
      })
     .catch(function (error) {
       console.log(error);
+      self.props.parentContext.setState({errorMessage:"* Invalid Email/Password. Please try again."});
     });
    }
 
@@ -62,7 +53,6 @@ class Login extends Component {
           floatingLabelText="Password"
           onChange={(event,newValue) => this.setState({password:newValue})}
         />
-        <br/>
         <RaisedButton label="Login" primary={true} style={style} onClick={(event) => this.login(event)}/>
       </div>
     );

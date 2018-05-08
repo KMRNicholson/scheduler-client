@@ -36,9 +36,16 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-.small-text {
+.margin-sm {
   margin: 1rem;
-  font-size: 9px;
+}
+
+.small-text {
+  font-size: 10px;
+}
+
+.error-color {
+  color: #FF0000;
 }
 
 @keyframes App-logo-spin {
