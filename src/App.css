@@ -22,6 +22,32 @@
   font-size: large;
 }
 
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 215px;
+  margin-top: 7rem;
+  position: relative;
+  width: 300px;
+}
+
+.card-1 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.margin-sm {
+  margin: 1rem;
+}
+
+.small-text {
+  font-size: 10px;
+}
+
+.error-color {
+  color: #FF0000;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
