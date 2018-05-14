@@ -27,16 +27,16 @@ class Login extends Component {
     axios.post(apiBaseUrl+'users/login', payload)
      .then(function (response) {
        console.log(response);
-       self.props.parentContext.setState({errorMessage:''});
+       self.props.parentContext.setState({errorMessage:[]});
        //var profile=[];
        //profile.push(<Profile appContext={self.props.appContext}/>);
        //self.props.appContext.setState({loginPage:[],profile:profile});
      })
     .catch(function (error) {
       console.log(error);
-      self.props.parentContext.setState({errorMessage:"* Invalid Email/Password. Please try again."});
+      self.props.parentContext.setState({errorMessage:["* Invalid Email/Password. Please try again."]});
     });
-   }
+  }
 
   render(){
     return (

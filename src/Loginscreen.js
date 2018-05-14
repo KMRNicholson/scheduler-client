@@ -11,7 +11,7 @@ class Loginscreen extends Component {
       loginscreen:[],
       loginmessage:'',
       buttonLabel:'Sign up',
-      errorMessage:'',
+      errorMessage:[],
       isLogin:true
     }
   }
@@ -35,7 +35,7 @@ class Loginscreen extends Component {
       this.setState({
         loginscreen:loginscreen,
         loginmessage:loginmessage,
-        errorMessage:'',
+        errorMessage:[],
         buttonLabel:"Login",
         isLogin:false
       })
@@ -45,6 +45,7 @@ class Loginscreen extends Component {
       this.setState({
         loginscreen:loginscreen,
         loginmessage:loginmessage,
+        errorMessage:[],
         buttonLabel:"Sign up",
         isLogin:true
       })
@@ -59,7 +60,8 @@ class Loginscreen extends Component {
             <div>
               <AppBar title={<img role='presentation' src="/images/schedlogo-white.png"/> } showMenuIconButton={false}/>
               {this.state.loginscreen}
-              <div className="small-text margin-sm error-color">{this.state.errorMessage}</div>
+              <div className="small-text margin-sm error-color">{this.state.errorMessage[0]}</div>
+              <div className="small-text margin-sm error-color">{this.state.errorMessage[1]}</div>    
               <div className="small-text margin-sm">
                 {this.state.loginmessage} <a href='#' onClick={(event) => this.handleClick(event)}>here</a>!
               </div>
