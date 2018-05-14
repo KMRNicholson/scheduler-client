@@ -3,7 +3,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import Login from './Login';
-import {orange500, blue500} from 'material-ui/styles/colors';
 
 const STYLE = {
   margin: 15,
@@ -12,11 +11,6 @@ const STYLE = {
 const ERROR_MESSAGE = {
   missingParams:'* Missing Required Fields.',
   formatInvalid:'* Email/Password Invalid Format.'
-};
-
-const ERROR_STYLE = {
-  position: 'absolute',
-  bottom: '-0.7rem'
 };
 
 class Signup extends Component {
@@ -48,36 +42,41 @@ class Signup extends Component {
   }
 
   passwordCheck(newValue){
-    console.log(newValue)
+    var results;
     if(!this.validatePassword(newValue)){
       this.setState({password:newValue})
       this.props.parentContext.setState({errorMessage: [ERROR_MESSAGE.formatInvalid] })
-      return false;
+      results = false;
     }else{
       this.setState({password:newValue})
       this.props.parentContext.setState({errorMessage: [] })
-      return true;
+      results = true;
     };
+    return results;
   }
 
   emailCheck(newValue){
+    var results;
     if(!this.validateEmail(newValue)){
       this.setState({email:newValue})
       this.props.parentContext.setState({errorMessage: [ERROR_MESSAGE.formatInvalid] })
-      return false;
+      results = false;
     }else{
       this.setState({email:newValue})
       this.props.parentContext.setState({errorMessage: [] })
-      return true;
+      results = true;
     };
+    return results;
   }
 
   paramsCheck(){
+    var results;
     if(this.state.firstName.trim().length>0 && this.state.lastName.trim().length>0 && this.state.email.trim().length>0 && this.state.password.trim().length>0){
-      return true;
+      results = true;
     }else{
-      return false;
+      results = false;
     }
+    return results;
   }
 
   handleClick(event){
@@ -108,7 +107,8 @@ class Signup extends Component {
         loginscreen.push(<Login parentContext={this}/>);
         self.props.parentContext.setState({loginscreen:loginscreen,
           buttonLabel:"Login",
-          isLogin:true
+          isLogin:true,
+          errorMessage:[]
         });
       })
       .catch(function (error) {
