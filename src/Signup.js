@@ -97,14 +97,14 @@ class Signup extends Component {
       var payload={
         "firstName":this.state.firstName,
         "lastName":this.state.lastName,
-        "email":this.state.email,
+        "email":this.state.email.toLowerCase(),
         "password":this.state.password
       }
       axios.post(apiBaseUrl+'users/create', payload)
       .then(function (response) {
         console.log(response);
         var loginscreen=[];
-        loginscreen.push(<Login parentContext={this}/>);
+        loginscreen.push(<Login key="login" parentContext={this}/>);
         self.props.parentContext.setState({loginscreen:loginscreen,
           buttonLabel:"Login",
           isLogin:true,

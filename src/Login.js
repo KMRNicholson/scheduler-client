@@ -21,7 +21,7 @@ class Login extends Component {
     var apiBaseUrl = "http://localhost:5000/api/";
     var self = this;
     var payload={
-      "email":this.state.email,
+      "email":this.state.email.toLowerCase(),
       "password":this.state.password
     }
     axios.post(apiBaseUrl+'users/login', payload)
