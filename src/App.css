@@ -22,17 +22,27 @@
   font-size: large;
 }
 
-.card {
+.card-1 {
   background: #fff;
   border-radius: 2px;
   display: inline-block;
   height: 215px;
-  margin-top: 7rem;
+  margin-top: 5rem;
   position: relative;
   width: 300px;
 }
 
-.card-1 {
+.card-2 {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 360px;
+  margin-top: 5rem;
+  position: relative;
+  width: 300px;
+}
+
+.card-shadow-1 {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 

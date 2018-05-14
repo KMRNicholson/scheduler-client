@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import Profile from './Profile';
 
-const style = {
+const STYLE = {
   margin: 15,
 };
 
@@ -21,26 +21,26 @@ class Login extends Component {
     var apiBaseUrl = "http://localhost:5000/api/";
     var self = this;
     var payload={
-      "email":this.state.email,
+      "email":this.state.email.toLowerCase(),
       "password":this.state.password
     }
     axios.post(apiBaseUrl+'users/login', payload)
      .then(function (response) {
        console.log(response);
-       self.props.parentContext.setState({errorMessage:''});
+       self.props.parentContext.setState({errorMessage:[]});
        //var profile=[];
        //profile.push(<Profile appContext={self.props.appContext}/>);
        //self.props.appContext.setState({loginPage:[],profile:profile});
      })
     .catch(function (error) {
       console.log(error);
-      self.props.parentContext.setState({errorMessage:"* Invalid Email/Password. Please try again."});
+      self.props.parentContext.setState({errorMessage:["* Invalid Email/Password. Please try again."]});
     });
-   }
+  }
 
   render(){
     return (
-      <div className="card card-1">
+      <div className="card-1 card-shadow-1">
         <TextField
           hintText="Enter your Email"
           floatingLabelText="Email"
@@ -53,7 +53,7 @@ class Login extends Component {
           floatingLabelText="Password"
           onChange={(event,newValue) => this.setState({password:newValue})}
         />
-        <RaisedButton label="Login" primary={true} style={style} onClick={(event) => this.login(event)}/>
+        <RaisedButton label="Sign In" primary={true} style={STYLE} onClick={(event) => this.login(event)}/>
       </div>
     );
   }
