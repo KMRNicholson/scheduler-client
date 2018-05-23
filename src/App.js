@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Loginscreen from './Loginscreen';
 import './App.css';
@@ -10,7 +12,8 @@ class App extends Component{
     super(props);
     this.state={
       loginPage:[],
-      profile:[]
+      dashboard:[],
+      menuIcon:false
     }
   }
 
@@ -23,8 +26,15 @@ class App extends Component{
   render(){
     return (
       <div className="App">
-        {this.state.loginPage}
-        {this.state.profile}
+        <div>
+          <MuiThemeProvider>
+            <div>
+              <AppBar title={<img role='presentation' src="/images/schedlogo-white.png"/> } showMenuIconButton={this.state.menuIcon}/>
+              {this.state.loginPage}
+              {this.state.dashboard}
+            </div>
+          </MuiThemeProvider>
+        </div>
       </div>
     );
   }

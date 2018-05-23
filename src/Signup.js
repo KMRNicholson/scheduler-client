@@ -85,7 +85,6 @@ class Signup extends Component {
     var validPass = this.passwordCheck(this.state.password);
     var validEmail = this.emailCheck(this.state.email);
     var validParams = this.paramsCheck();
-    console.log(validPass);
     if(!validParams && (!validPass || !validEmail)){
       this.props.parentContext.setState({errorMessage: [ERROR_MESSAGE.formatInvalid,
         ERROR_MESSAGE.missingParams] });
