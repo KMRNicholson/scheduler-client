@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
-import Profile from './Profile';
+import Dashboard from './Dashboard';
 
 const STYLE = {
   margin: 15,
@@ -28,9 +28,9 @@ class Login extends Component {
      .then(function (response) {
        console.log(response);
        self.props.parentContext.setState({errorMessage:[]});
-       //var profile=[];
-       //profile.push(<Profile appContext={self.props.appContext}/>);
-       //self.props.appContext.setState({loginPage:[],profile:profile});
+       var dashboard=[];
+       dashboard.push(<Dashboard key="dashboard" appContext={self.props.appContext} parentContext={self.props.appContext}/>);
+       self.props.appContext.setState({loginPage:[],dashboard:dashboard, menuIcon:true});
      })
     .catch(function (error) {
       console.log(error);
